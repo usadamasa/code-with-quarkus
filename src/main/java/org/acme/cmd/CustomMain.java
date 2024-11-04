@@ -4,8 +4,14 @@ import com.sun.tools.javac.Main;
 import io.quarkus.runtime.Quarkus;
 import io.quarkus.runtime.QuarkusApplication;
 import io.quarkus.runtime.annotations.QuarkusMain;
+import picocli.CommandLine;
 
-public class CustomMain implements QuarkusApplication {
+@CommandLine.Command(name = "server", description = "run server")
+public class CustomMain implements QuarkusApplication, Runnable {
+
+    /**
+     * Run via QuarkusMain.
+     */
     @Override
     public int run(String... args) throws Exception {
         System.out.println("Hello Quarkus Server!");
@@ -15,5 +21,14 @@ public class CustomMain implements QuarkusApplication {
         // https://ja.quarkus.io/guides/lifecycle
         Quarkus.waitForExit();
         return 0;
+    }
+
+    /**
+     * Run via PicoCLI.
+     */
+    @Override
+    public void run() {
+        System.out.println("Hello Quarkus Server via PicoCLI!");
+        Quarkus.waitForExit();
     }
 }

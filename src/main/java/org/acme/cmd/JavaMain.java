@@ -3,9 +3,14 @@ package org.acme.cmd;
 import io.quarkus.runtime.Quarkus;
 import io.quarkus.runtime.annotations.QuarkusMain;
 
-@QuarkusMain
+// This annotation is needed to run this class as a Quarkus application.
+// https://quarkus.io/guides/command-mode-reference#quarkusmain
+// But I believe that we should use Picocli's @Command annotation instead.
+// @ref: LaunchCommand.java
+//@QuarkusMain
 public class JavaMain {
-    public static void main(String... args) {
+    public static void mainNN(String... args) {
+        System.out.println("I'm JavaMain");
         if (args.length == 0) {
             // Run REST API Server
             Quarkus.run(args);
