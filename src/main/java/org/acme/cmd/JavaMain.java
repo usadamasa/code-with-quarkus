@@ -1,7 +1,7 @@
 package org.acme.cmd;
 
 import io.quarkus.runtime.Quarkus;
-import io.quarkus.runtime.annotations.QuarkusMain;
+
 
 // This annotation is needed to run this class as a Quarkus application.
 // https://quarkus.io/guides/command-mode-reference#quarkusmain

@@ -7,6 +7,7 @@ import org.acme.cmd.GoodbyeMain;
 import org.acme.cmd.GreetingMain;
 import picocli.CommandLine;
 
+
 // https://ja.quarkus.io/guides/picocli#command-line-application-with-multiple-commands
 @TopCommand
 @ApplicationScoped
@@ -18,4 +19,5 @@ import picocli.CommandLine;
                 CustomMain.class
         }
 )
-public class LaunchCommand {}
+public class LaunchCommand {
+}

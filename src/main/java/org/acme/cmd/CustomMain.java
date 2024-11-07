@@ -1,13 +1,13 @@
 package org.acme.cmd;
 
-import com.sun.tools.javac.Main;
 import io.quarkus.runtime.Quarkus;
 import io.quarkus.runtime.QuarkusApplication;
-import io.quarkus.runtime.annotations.QuarkusMain;
 import picocli.CommandLine;
 
+import java.util.concurrent.Callable;
+
 @CommandLine.Command(name = "server", description = "run server")
-public class CustomMain implements QuarkusApplication, Runnable {
+public class CustomMain implements QuarkusApplication, Callable<Integer> {
 
     /**
      * Run via QuarkusMain.
@@ -27,8 +27,9 @@ public class CustomMain implements QuarkusApplication, Runnable {
      * Run via PicoCLI.
      */
     @Override
-    public void run() {
+    public Integer call() throws Exception {
         System.out.println("Hello Quarkus Server via PicoCLI!");
         Quarkus.waitForExit();
+        return 0;
     }
 }
